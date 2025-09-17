@@ -224,57 +224,75 @@ input[type="file"]{
 }
 ::-webkit-scrollbar{width:10px;background:var(--primary-dark);}
 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:8px;}
-@media (max-width:900px){
-  .container{max-width:98vw;}
-  .editor-container{padding:10px;}
-  .document-preview{padding:6px;}
-}
-@media (max-width:600px){
+@media (max-width:900px) {
   .toolbar {
-    flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
-    position: static;
-    top: auto;
-    z-index: 10;
-  }
-  .toolbar .toolbar-inner {
-    display: none;
-    flex-direction: column;
+    padding: 0 2vw;
     background: var(--primary-dark);
-    position: absolute;
-    top: 48px;
+    border-bottom: 1.5px solid var(--border);
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100vw;
-    z-index: 1001;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 4px 16px #0002;
-    padding: 8px 0;
+    z-index: 100;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60px;
+    min-height: 60px;
   }
-  .toolbar.open .toolbar-inner {
-    display: flex;
+  .container {
+    padding-top: 60px !important;
   }
   .toolbar .toolbar-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: var(--button-bg);
-    border: none;
-    border-radius: 50%;
-    color: white;
-    font-size: 1.5rem;
-    margin: 8px;
-    cursor: pointer;
-    z-index: 1002;
-  }
-  .toolbar > *:not(.toolbar-toggle):not(.toolbar-inner) {
     display: none !important;
+  }
+  .toolbar .toolbar-inner {
+    display: flex !important;
+    flex-direction: row;
+    width: 100vw;
+    background: none;
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    gap: 0;
+  }
+  .toolbar button,
+  .toolbar label {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 10px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    margin: 0 2px;
+    gap: 0;
+    justify-content: center;
+  }
+  .file-name {
+    display: none;
+  }
+}
+@media (max-width:600px) {
+  .toolbar {
+    height: 52px;
+    min-height: 52px;
+    padding: 0 1vw;
+  }
+  .container {
+    padding-top: 52px !important;
+  }
+  .toolbar .toolbar-inner {
+    font-size: 0.95rem;
+  }
+  .toolbar button,
+  .toolbar label {
+    font-size: 1rem;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 10px;
+    padding: 0 6px;
   }
 }
 @media (min-width: 601px) {
